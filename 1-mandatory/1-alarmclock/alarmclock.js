@@ -1,4 +1,22 @@
-function setAlarm() {}
+function setAlarm() {
+  let startingTime = document.getElementById("alarmSet")
+  let time = startingTime.value;;
+  let countDown = document.getElementById("timeRemaining");
+  countDown.innerText = `Time Remaining: 00:${time}`
+
+  const myInterval = setInterval(() => {
+    time--;
+    countDown.innerText = `Time Remaining :${time}`;
+
+    if (time === 0) {
+      playAlarm();
+      clearInterval(myInterval);    
+    }
+  }, 1000);
+}
+
+
+
 
 // DO NOT EDIT BELOW HERE
 
@@ -23,3 +41,6 @@ function pauseAlarm() {
 }
 
 window.onload = setup;
+
+
+
